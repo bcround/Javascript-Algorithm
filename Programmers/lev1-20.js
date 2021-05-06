@@ -1,18 +1,17 @@
 /*
-나누어 떨어지는 숫자 배열
-출처 - https://programmers.co.kr/learn/courses/30/lessons/12910
+가운데 글자 가져오기
+출처 - https://programmers.co.kr/learn/courses/30/lessons/12903
 */
 
-function solution(arr, divisor) {
-  let ans = [];
+function solution(s) {
+  let ans = '';
 
-  for (let i = 0; i < arr.length; i++) {
-    if (!(arr[i] % divisor)) ans = [...ans, arr[i]];
-  }
-
-  return ans.length ? ans.sort((a, b) => a - b) : [-1];
+  ans =
+    s.length % 2
+      ? s[Math.floor(s.length / 2)]
+      : s[Math.floor(s.length / 2 - 1)] + s[Math.floor(s.length / 2)];
+  return ans;
 }
 
-console.log(solution([5, 9, 7, 10], 5));
-console.log(solution([2, 36, 1, 3], 1));
-console.log(solution([3, 2, 6], 10));
+console.log(solution('abcde')); // 'c'
+console.log(solution('qwer')); // 'we'
